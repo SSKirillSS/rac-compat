@@ -1,0 +1,8 @@
+{
+  "item.raccompat.acid_walker": "Кислоход",
+  "tooltip.relics.acid_walker.description": "Позволяет его владельцу безопасно перемещаться по кислотным поверхностям, нейтрализуя вредные эффекты и обеспечивая защиту. Открывает доступ к исследованию самых опасных радиоактивных зон, делая непреодолимое преодолимым.",
+  "tooltip.relics.acid_walker.ability.walking": "Кислотная поступь",
+  "tooltip.relics.acid_walker.ability.walking.description": "В течение определенного времени позволяет передвигаться по поверхности кислоты, не проваливаясь в неё и не получая коррозии. По истечении запаса времени начинает оставлять за собой токсичный след, применяющий эффекты кислоты ко всем живым существам.",
+  "tooltip.relics.acid_walker.ability.walking.stat.duration.title": "Продолжительность:",
+  "tooltip.relics.acid_walker.ability.walking.stat.duration.value": "%1$s секунд."
+}

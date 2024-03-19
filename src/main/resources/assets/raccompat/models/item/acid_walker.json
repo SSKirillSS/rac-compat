@@ -1,0 +1,10 @@
+{
+  "parent": "item/generated",
+  "textures": {
+      "layer0": "raccompat:item/acid_walker"
+  },
+  "overrides": [
+      { "predicate": { "raccompat:erosion": 0 }, "model": "raccompat:item/acid_walker_0" },
+      { "predicate": { "raccompat:erosion": 1 }, "model": "raccompat:item/acid_walker_1" }
+  ]
+}

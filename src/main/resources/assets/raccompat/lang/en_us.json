@@ -1,0 +1,8 @@
+{
+  "item.raccompat.acid_walker": "Acid Walker",
+  "tooltip.relics.acid_walker.description": "Allows its owner to safely traverse acidic surfaces, neutralizing harmful effects and providing protection. Grants access to explore radiation hazard zones, making the insurmountable surmountable.",
+  "tooltip.relics.acid_walker.ability.walking": "Acidic Stride",
+  "tooltip.relics.acid_walker.ability.walking.description": "For a certain period, allows movement across acid surfaces without sinking into them or sustaining corrosion. After the duration ends, it begins to leave behind a toxic trail, applying acid effects to all living beings.",
+  "tooltip.relics.acid_walker.ability.walking.stat.duration.title": "Duration:",
+  "tooltip.relics.acid_walker.ability.walking.stat.duration.value": "%1$s seconds."
+}
