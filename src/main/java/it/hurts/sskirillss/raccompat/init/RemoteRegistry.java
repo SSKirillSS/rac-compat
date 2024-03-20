@@ -23,6 +23,6 @@ public class RemoteRegistry {
 
     @SubscribeEvent
     public static void entityRenderers(EntityRenderersEvent.RegisterRenderers event) {
-        event.registerEntityRenderer(EntityRegistry.ACID_CLOUD.get(), new NullRenderer.RenderFactory());
+        event.registerEntityRenderer(EntityRegistry.ACID_CLOUD.get(), NullRenderer::new);
     }
 }
