@@ -19,6 +19,8 @@ public class RemoteRegistry {
     public static void setupClient(final FMLClientSetupEvent event) {
         ItemProperties.register(ItemRegistry.ACID_WALKER.get(), new ResourceLocation(RACCompat.MODID, "erosion"),
                 (stack, world, entity, id) -> NBTUtils.getInt(stack, AcidWalkerItem.TAG_DURATION, 0) >= ((IRelicItem) stack.getItem()).getAbilityValue(stack, "walking", "duration") ? 1 : 0);
+        ItemProperties.register(ItemRegistry.POLAR_BOOT.get(), new ResourceLocation(RACCompat.MODID, "blue"),
+                (stack, world, entity, id) -> ((IRelicItem) stack.getItem()).isAbilityTicking(stack, "polarity") ? 1 : 0);
     }
 
     @SubscribeEvent

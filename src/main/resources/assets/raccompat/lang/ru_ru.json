@@ -4,5 +4,12 @@
   "tooltip.relics.acid_walker.ability.walking": "Кислотная поступь",
   "tooltip.relics.acid_walker.ability.walking.description": "В течение определенного времени позволяет передвигаться по поверхности кислоты, не проваливаясь в неё и не получая коррозии. По истечении запаса времени начинает оставлять за собой токсичный след, применяющий эффекты кислоты ко всем живым существам.",
   "tooltip.relics.acid_walker.ability.walking.stat.duration.title": "Продолжительность:",
-  "tooltip.relics.acid_walker.ability.walking.stat.duration.value": "%1$s секунд."
+  "tooltip.relics.acid_walker.ability.walking.stat.duration.value": "%1$s секунд.",
+
+  "item.raccompat.polar_boot": "Полярный ботинок",
+  "tooltip.relics.polar_boot.description": "Предоставляет владельцу способность левитировать над поверхностью, облегчая преодоление сложных ландшафтов и расширяя границы исследований.",
+  "tooltip.relics.polar_boot.ability.polarity": "Поляризация",
+  "tooltip.relics.polar_boot.ability.polarity.description": "Переключает полярность ботинка между синей и красной. Красная увеличивает силу притяжения к земле, синяя же - позволяет свободно левитировать над её поверхностью.",
+  "tooltip.relics.polar_boot.ability.polarity.stat.speed.title": "Модификатор скорости левитации:",
+  "tooltip.relics.polar_boot.ability.polarity.stat.speed.value": "x%1$s%%."
 }

@@ -1,0 +1,12 @@
+{
+  "parent": "forge:item/default",
+  "base": {
+    "parent": "raccompat:item/polar_boot_red_3d"
+  },
+  "loader": "forge:separate_transforms",
+  "perspectives": {
+    "gui": {
+      "parent": "raccompat:item/polar_boot_red_2d"
+    }
+  }
+}

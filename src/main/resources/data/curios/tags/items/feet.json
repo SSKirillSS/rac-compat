@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "raccompat:acid_walker"
+    "raccompat:acid_walker",
+    "raccompat:polar_boot"
   ]
 }

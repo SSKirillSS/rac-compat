@@ -4,5 +4,12 @@
   "tooltip.relics.acid_walker.ability.walking": "Acidic Stride",
   "tooltip.relics.acid_walker.ability.walking.description": "For a certain period, allows movement across acid surfaces without sinking into them or sustaining corrosion. After the duration ends, it begins to leave behind a toxic trail, applying acid effects to all living beings.",
   "tooltip.relics.acid_walker.ability.walking.stat.duration.title": "Duration:",
-  "tooltip.relics.acid_walker.ability.walking.stat.duration.value": "%1$s seconds."
+  "tooltip.relics.acid_walker.ability.walking.stat.duration.value": "%1$s seconds.",
+
+  "item.raccompat.polar_boot": "Polar Boot",
+  "tooltip.relics.polar_boot.description": "Provides the wearer with the ability to levitate above the surface, making it easier to traverse difficult terrain and push the boundaries of exploration.",
+  "tooltip.relics.polar_boot.ability.polarity": "Polarization",
+  "tooltip.relics.polar_boot.ability.polarity.description": "Switches the polarity of the boot between blue and red. Red increases the force of attraction to the ground, while blue allows you to levitate freely above its surface.",
+  "tooltip.relics.polar_boot.ability.polarity.stat.speed.title": "Levitation speed modifier:",
+  "tooltip.relics.polar_boot.ability.polarity.stat.speed.value": "x%1$s%%."
 }
