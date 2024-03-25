@@ -11,5 +11,22 @@
   "tooltip.relics.polar_boot.ability.polarity": "Поляризация",
   "tooltip.relics.polar_boot.ability.polarity.description": "Переключает полярность ботинка между синей и красной. Красная увеличивает силу притяжения к земле, синяя же - позволяет свободно левитировать над её поверхностью.",
   "tooltip.relics.polar_boot.ability.polarity.stat.speed.title": "Модификатор скорости левитации:",
-  "tooltip.relics.polar_boot.ability.polarity.stat.speed.value": "x%1$s%%."
+  "tooltip.relics.polar_boot.ability.polarity.stat.speed.value": "x%1$s%%.",
+
+  "item.raccompat.desolate_pendant": "Безотрадный кулон",
+  "tooltip.relics.desolate_pendant.description": "Повелевает призрачными ножами, незаметно пронзая ими цели на пути своего владельца.",
+  "tooltip.relics.desolate_pendant.ability.desolate": "Разорение",
+  "tooltip.relics.desolate_pendant.ability.desolate.description": "Каждая атака носителя с определённым шансом призывает фантомный клинок, наносящий цели долю от исходного урона.",
+  "tooltip.relics.desolate_pendant.ability.desolate.stat.damage.title": "Наносимый урон:",
+  "tooltip.relics.desolate_pendant.ability.desolate.stat.damage.value": "%1$s%%.",
+  "tooltip.relics.desolate_pendant.ability.desolate.stat.chance.title": "Шанс срабатывания:",
+  "tooltip.relics.desolate_pendant.ability.desolate.stat.chance.value": "%1$s%%.",
+  "tooltip.relics.desolate_pendant.ability.devastate": "Опустошение",
+  "tooltip.relics.desolate_pendant.ability.devastate.description": "Призывает несколько фантомных клинков, поочерёдно наносящих цели долю от урона оружия из руки.",
+  "tooltip.relics.desolate_pendant.ability.devastate.stat.count.title": "Количество клинков:",
+  "tooltip.relics.desolate_pendant.ability.devastate.stat.count.value": "%1$s единиц.",
+  "tooltip.relics.desolate_pendant.ability.devastate.stat.cooldown.title": "Время перезарядки:",
+  "tooltip.relics.desolate_pendant.ability.devastate.stat.cooldown.value": "%1$s секунд.",
+  "tooltip.relics.desolate_pendant.ability.devastate.predicate.target": "Взгляд на цель",
+  "tooltip.relics.desolate_pendant.ability.devastate.predicate.weapon": "Оружие в основной руке"
 }
