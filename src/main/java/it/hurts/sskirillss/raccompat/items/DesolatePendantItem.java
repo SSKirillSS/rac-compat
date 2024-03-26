@@ -65,7 +65,7 @@ public class DesolatePendantItem extends RelicItem implements IRenderableCurio {
                         .ability(AbilityData.builder("desolate")
                                 .stat(StatData.builder("chance")
                                         .initialValue(0.05D, 0.15D)
-                                        .upgradeModifier(UpgradeOperation.MULTIPLY_BASE, 0.15D)
+                                        .upgradeModifier(UpgradeOperation.MULTIPLY_BASE, 0.1D)
                                         .formatValue(value -> MathUtils.round(value * 100, 1))
                                         .build())
                                 .stat(StatData.builder("damage")
