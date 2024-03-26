@@ -30,6 +30,7 @@ import net.minecraft.client.model.geom.builders.CubeDeformation;
 import net.minecraft.client.model.geom.builders.CubeListBuilder;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.model.geom.builders.MeshDefinition;
+import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.ItemRenderer;
@@ -127,9 +128,17 @@ public class PolarBootItem extends RelicItem implements IRenderableCurio {
                         double verticalDamping = (1D - (Math.abs(player.getY() - pos.getY()) / (verticalRadius * 2D))) * 0.2D;
 
                         if (distance > 0)
-                            motion = motion.add(repulsion.multiply(verticalDamping, 1, verticalDamping).normalize().scale(0.65D / distance * 0.025D));
+                            motion = motion.add(repulsion.multiply(verticalDamping, 1D, verticalDamping).normalize().scale(0.65D / distance * 0.025D));
                     }
                 }
+            }
+
+            if (player instanceof LocalPlayer localPlayer) {
+                if (localPlayer.isShiftKeyDown())
+                    motion = motion.add(0D, -0.05D, 0D);
+
+                if (localPlayer.input.jumping && motion.y() > 0D)
+                    motion = motion.multiply(1D, 1.5D, 1D);
             }
 
             if (motion.lengthSqr() > 0) {
@@ -141,7 +150,7 @@ public class PolarBootItem extends RelicItem implements IRenderableCurio {
                 player.fallDistance = 0F;
 
                 if (level.isClientSide && player.tickCount % 2 == 0) {
-                    double diff = Math.min(16, player.getY() - WorldUtils.getGroundHeight(level, player.position(), 16));
+                    double diff = Math.min(24, player.getY() - WorldUtils.getGroundHeight(level, player.position(), 24));
 
                     if (diff > 0) {
                         Vec3 start = player.position().add(player.getDeltaMovement()).add(MathUtils.randomFloat(random) * 0.25F, 0, MathUtils.randomFloat(random) * 0.25F);
@@ -158,7 +167,7 @@ public class PolarBootItem extends RelicItem implements IRenderableCurio {
                 player.hasImpulse = true;
 
                 if (level.isClientSide && player.tickCount % 2 == 0) {
-                    double diff = Math.min(16, player.getY() - WorldUtils.getGroundHeight(level, player.position(), 16));
+                    double diff = Math.min(24, player.getY() - WorldUtils.getGroundHeight(level, player.position(), 24));
 
                     if (diff > 0) {
                         Vec3 start = player.position().add(player.getDeltaMovement()).add(MathUtils.randomFloat(random) * 0.25F, 0, MathUtils.randomFloat(random) * 0.25F);
