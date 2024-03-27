@@ -113,6 +113,9 @@ public class PolarBootItem extends RelicItem implements IRenderableCurio {
         Vec3 motion = Vec3.ZERO;
 
         if (isAbilityTicking(stack, "polarity")) {
+            if (player.tickCount % 20 == 0)
+                addExperience(player, stack, 1);
+
             for (int x = -horizontalRadius; x <= horizontalRadius; x++) {
                 for (int y = -verticalRadius; y <= verticalRadius / 2; y++) {
                     for (int z = -horizontalRadius; z <= horizontalRadius; z++) {

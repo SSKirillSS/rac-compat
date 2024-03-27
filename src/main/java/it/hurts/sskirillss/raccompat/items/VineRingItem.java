@@ -74,6 +74,8 @@ public class VineRingItem extends RelicItem {
 
         double height = WorldUtils.getCeilHeight(level, player.position(), (int) getAbilityValue(stack, "vine", "length"));
 
+        addExperience(player, stack, (int) height);
+
         int offset = -1;
 
         while (player.getY() + offset < height) {
