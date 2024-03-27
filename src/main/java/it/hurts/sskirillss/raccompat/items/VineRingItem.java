@@ -2,6 +2,7 @@ package it.hurts.sskirillss.raccompat.items;
 
 import com.github.alexmodguy.alexscaves.server.block.ACBlockRegistry;
 import it.hurts.sskirillss.raccompat.misc.RACBackgrounds;
+import it.hurts.sskirillss.raccompat.misc.RACLootCollections;
 import it.hurts.sskirillss.relics.items.relics.base.RelicItem;
 import it.hurts.sskirillss.relics.items.relics.base.data.RelicData;
 import it.hurts.sskirillss.relics.items.relics.base.data.cast.CastPredicate;
@@ -13,7 +14,6 @@ import it.hurts.sskirillss.relics.items.relics.base.data.leveling.LevelingData;
 import it.hurts.sskirillss.relics.items.relics.base.data.leveling.StatData;
 import it.hurts.sskirillss.relics.items.relics.base.data.leveling.misc.UpgradeOperation;
 import it.hurts.sskirillss.relics.items.relics.base.data.loot.LootData;
-import it.hurts.sskirillss.relics.items.relics.base.data.loot.misc.LootCollections;
 import it.hurts.sskirillss.relics.items.relics.base.data.style.StyleData;
 import it.hurts.sskirillss.relics.utils.MathUtils;
 import it.hurts.sskirillss.relics.utils.ParticleUtils;
@@ -26,7 +26,6 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.phys.Vec3;
 
 import java.awt.*;
 
@@ -60,7 +59,7 @@ public class VineRingItem extends RelicItem {
                         .background(RACBackgrounds.PRIMORDIAL)
                         .build())
                 .loot(LootData.builder()
-                        .entry(LootCollections.COLD)
+                        .entry(RACLootCollections.PRIMORDIAL)
                         .build())
                 .build();
     }

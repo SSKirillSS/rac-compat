@@ -7,6 +7,7 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import it.hurts.sskirillss.raccompat.init.ItemRegistry;
 import it.hurts.sskirillss.raccompat.misc.RACBackgrounds;
+import it.hurts.sskirillss.raccompat.misc.RACLootCollections;
 import it.hurts.sskirillss.raccompat.network.NetworkHandler;
 import it.hurts.sskirillss.raccompat.network.packets.DesolateDaggerRenderStackPacket;
 import it.hurts.sskirillss.relics.client.models.items.CurioModel;
@@ -23,14 +24,16 @@ import it.hurts.sskirillss.relics.items.relics.base.data.leveling.LevelingData;
 import it.hurts.sskirillss.relics.items.relics.base.data.leveling.StatData;
 import it.hurts.sskirillss.relics.items.relics.base.data.leveling.misc.UpgradeOperation;
 import it.hurts.sskirillss.relics.items.relics.base.data.loot.LootData;
-import it.hurts.sskirillss.relics.items.relics.base.data.loot.misc.LootCollections;
 import it.hurts.sskirillss.relics.items.relics.base.data.style.StyleData;
 import it.hurts.sskirillss.relics.utils.EntityUtils;
 import it.hurts.sskirillss.relics.utils.MathUtils;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.model.geom.PartPose;
-import net.minecraft.client.model.geom.builders.*;
+import net.minecraft.client.model.geom.builders.CubeDeformation;
+import net.minecraft.client.model.geom.builders.CubeListBuilder;
+import net.minecraft.client.model.geom.builders.LayerDefinition;
+import net.minecraft.client.model.geom.builders.MeshDefinition;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.ItemRenderer;
@@ -97,7 +100,7 @@ public class DesolatePendantItem extends RelicItem implements IRenderableCurio {
                         .background(RACBackgrounds.FORLORN)
                         .build())
                 .loot(LootData.builder()
-                        .entry(LootCollections.COLD)
+                        .entry(RACLootCollections.FORLORN)
                         .build())
                 .build();
     }
