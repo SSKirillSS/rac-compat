@@ -20,7 +20,7 @@
   "tooltip.relics.desolate_pendant.ability.desolate.stat.damage.title": "Damage dealt:",
   "tooltip.relics.desolate_pendant.ability.desolate.stat.damage.value": "%1$s%%.",
   "tooltip.relics.desolate_pendant.ability.desolate.stat.chance.title": "Trigger chance:",
-  "tooltip.relics.desolate_pendant.ability.desolate.stat.chance.chance.value": "%1$s%%.",
+  "tooltip.relics.desolate_pendant.ability.desolate.stat.chance.value": "%1$s%%.",
   "tooltip.relics.desolate_pendant.ability.devastate": "Devastate",
   "tooltip.relics.desolate_pendant.ability.devastate.description": "Invokes several phantom blades, alternately dealing the target a fraction of the weapon's damage from the hand.",
   "tooltip.relics.desolate_pendant.ability.devastate.stat.count.title": "Blade count:",
@@ -28,5 +28,15 @@
   "tooltip.relics.desolate_pendant.ability.devastate.stat.cooldown.title": "Cooldown time:",
   "tooltip.relics.desolate_pendant.ability.devastate.stat.cooldown.value": "%1$s seconds.",
   "tooltip.relics.desolate_pendant.ability.devastate.predicate.target": "View target",
-  "tooltip.relics.desolate_pendant.ability.devastate.predicate.weapon": "Weapon in main hand"
+  "tooltip.relics.desolate_pendant.ability.devastate.predicate.weapon": "Weapon in main hand",
+
+  "item.raccompat.vine_ring": "Ring of Vines",
+  "tooltip.relics.vine_ring.description": "Spawns thickets of archaic vines, opening new avenues for exploring the complex landscapes of underground territories.",
+  "tooltip.relics.vine_ring.ability.vine": "Vines",
+  "tooltip.relics.vine_ring.ability.vine.description": "Generates a vertical vine from the player's current position to the nearest solid block on the ceiling.",
+  "tooltip.relics.vine_ring.ability.vine.stat.length.title": "Maximum distance:",
+  "tooltip.relics.vine_ring.ability.vine.stat.length.value": "%1$s blocks.",
+  "tooltip.relics.vine_ring.ability.vine.stat.cooldown.title": "Cooldown:",
+  "tooltip.relics.vine_ring.ability.vine.stat.cooldown.value":"%1$s seconds.",
+  "tooltip.relics.vine_ring.ability.vine.predicate.ceil": "Block overhead"
 }

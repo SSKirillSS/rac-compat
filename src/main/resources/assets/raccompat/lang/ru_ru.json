@@ -28,5 +28,15 @@
   "tooltip.relics.desolate_pendant.ability.devastate.stat.cooldown.title": "Время перезарядки:",
   "tooltip.relics.desolate_pendant.ability.devastate.stat.cooldown.value": "%1$s секунд.",
   "tooltip.relics.desolate_pendant.ability.devastate.predicate.target": "Взгляд на цель",
-  "tooltip.relics.desolate_pendant.ability.devastate.predicate.weapon": "Оружие в основной руке"
+  "tooltip.relics.desolate_pendant.ability.devastate.predicate.weapon": "Оружие в основной руке",
+
+  "item.raccompat.vine_ring": "Перстень лоз",
+  "tooltip.relics.vine_ring.description": "Порождает заросли архаичных лиан, открывая новые пути для исследования сложных ландшафтов подземных территорий.",
+  "tooltip.relics.vine_ring.ability.vine": "Лозы",
+  "tooltip.relics.vine_ring.ability.vine.description": "Генерирует вертикальную лиану от текущей позиции игрока до ближайшего твёрдого блока на потолке.",
+  "tooltip.relics.vine_ring.ability.vine.stat.length.title": "Максимальная дистанция:",
+  "tooltip.relics.vine_ring.ability.vine.stat.length.value": "%1$s блоков.",
+  "tooltip.relics.vine_ring.ability.vine.stat.cooldown.title": "Время перезарядки:",
+  "tooltip.relics.vine_ring.ability.vine.stat.cooldown.value": "%1$s секунд.",
+  "tooltip.relics.vine_ring.ability.vine.predicate.ceil": "Блок над головой"
 }
