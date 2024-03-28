@@ -136,13 +136,8 @@ public class PolarBootItem extends RelicItem implements IRenderableCurio {
                 }
             }
 
-            if (player instanceof LocalPlayer localPlayer) {
-                if (localPlayer.isShiftKeyDown())
-                    motion = motion.add(0D, -0.05D, 0D);
-
-                if (localPlayer.input.jumping && motion.y() > 0D)
-                    motion = motion.multiply(1D, 1.5D, 1D);
-            }
+            if (level.isClientSide())
+                motion = handleAirController(player, motion);
 
             if (motion.lengthSqr() > 0) {
                 double horizontalSpeed = getAbilityValue(stack, "polarity", "speed");
@@ -181,6 +176,20 @@ public class PolarBootItem extends RelicItem implements IRenderableCurio {
                 }
             }
         }
+    }
+
+    @OnlyIn(Dist.CLIENT)
+    public Vec3 handleAirController(Player player, Vec3 motion) {
+        if (!(player instanceof LocalPlayer localPlayer))
+            return motion;
+
+        if (localPlayer.isShiftKeyDown())
+            motion = motion.add(0D, -0.05D, 0D);
+
+        if (localPlayer.input.jumping && motion.y() > 0D)
+            motion = motion.multiply(1D, 1.5D, 1D);
+
+        return motion;
     }
 
     @Override
