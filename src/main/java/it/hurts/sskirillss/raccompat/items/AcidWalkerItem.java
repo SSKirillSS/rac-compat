@@ -43,6 +43,7 @@ import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -142,6 +143,24 @@ public class AcidWalkerItem extends RelicItem implements IRenderableCurio {
 
         if (hurtSound)
             entity.playSound(ACSoundRegistry.ACID_BURN.get());
+    }
+
+    @Override
+    public boolean onEntityItemUpdate(ItemStack stack, ItemEntity entity) {
+        if (entity.tickCount % 3 != 0)
+            return false;
+
+        Level level = entity.level();
+
+        if (level.getEntitiesOfClass(AcidCloudEntity.class, entity.getBoundingBox()).isEmpty()) {
+            AcidCloudEntity cloud = new AcidCloudEntity(EntityRegistry.ACID_CLOUD.get(), level);
+
+            cloud.setPos(entity.position());
+
+            level.addFreshEntity(cloud);
+        }
+
+        return false;
     }
 
     @Override
