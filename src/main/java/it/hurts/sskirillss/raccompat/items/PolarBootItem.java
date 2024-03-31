@@ -9,6 +9,7 @@ import it.hurts.sskirillss.raccompat.misc.RACBackgrounds;
 import it.hurts.sskirillss.raccompat.misc.RACLootCollections;
 import it.hurts.sskirillss.relics.client.models.items.CurioModel;
 import it.hurts.sskirillss.relics.client.models.items.SidedCurioModel;
+import it.hurts.sskirillss.relics.items.relics.base.IRelicItem;
 import it.hurts.sskirillss.relics.items.relics.base.IRenderableCurio;
 import it.hurts.sskirillss.relics.items.relics.base.RelicItem;
 import it.hurts.sskirillss.relics.items.relics.base.data.RelicData;
@@ -41,6 +42,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -190,6 +192,35 @@ public class PolarBootItem extends RelicItem implements IRenderableCurio {
             motion = motion.multiply(1D, 1.5D, 1D);
 
         return motion;
+    }
+
+    @Override
+    public boolean onEntityItemUpdate(ItemStack stack, ItemEntity entity) {
+        Level level = entity.level();
+
+        RandomSource random = level.getRandom();
+
+        if (stack.getItem() instanceof IRelicItem relic) {
+            Vec3 center = entity.position().add(MathUtils.randomFloat(random) * 0.1F, 0, MathUtils.randomFloat(random) * 0.1F);
+
+            double distance = Math.min(5, WorldUtils.getGroundDistance(level, center, 5));
+
+            if (relic.isAbilityTicking(stack, "polarity")) {
+                if (entity.tickCount % 5 != 0)
+                    level.addParticle(ACParticleRegistry.AZURE_SHIELD_LIGHTNING.get(), center.x(), center.y() + entity.getBbHeight(), center.z(), center.x(), center.y() - distance, center.z());
+
+                if (distance <= 1) {
+                    entity.setDeltaMovement(entity.getDeltaMovement().add(0, 0.05F, 0));
+
+                    entity.hasImpulse = true;
+                }
+            } else {
+                if (entity.tickCount % 5 != 0)
+                    level.addParticle(ACParticleRegistry.SCARLET_SHIELD_LIGHTNING.get(), center.x(), center.y() + entity.getBbHeight(), center.z(), center.x(), center.y() - distance, center.z());
+            }
+        }
+
+        return false;
     }
 
     @Override
