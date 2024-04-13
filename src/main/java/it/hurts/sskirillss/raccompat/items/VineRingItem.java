@@ -5,7 +5,7 @@ import it.hurts.sskirillss.raccompat.misc.RACBackgrounds;
 import it.hurts.sskirillss.raccompat.misc.RACLootCollections;
 import it.hurts.sskirillss.relics.items.relics.base.RelicItem;
 import it.hurts.sskirillss.relics.items.relics.base.data.RelicData;
-import it.hurts.sskirillss.relics.items.relics.base.data.cast.CastPredicate;
+import it.hurts.sskirillss.relics.items.relics.base.data.cast.CastData;
 import it.hurts.sskirillss.relics.items.relics.base.data.cast.misc.CastStage;
 import it.hurts.sskirillss.relics.items.relics.base.data.cast.misc.CastType;
 import it.hurts.sskirillss.relics.items.relics.base.data.leveling.AbilitiesData;
@@ -35,7 +35,8 @@ public class VineRingItem extends RelicItem {
         return RelicData.builder()
                 .abilities(AbilitiesData.builder()
                         .ability(AbilityData.builder("vine")
-                                .active(CastType.INSTANTANEOUS, CastPredicate.builder()
+                                .active(CastData.builder()
+                                        .type(CastType.INSTANTANEOUS)
                                         .predicate("ceil", (player, stack) -> {
                                             int maxDistance = (int) getAbilityValue(stack, "vine", "length");
 

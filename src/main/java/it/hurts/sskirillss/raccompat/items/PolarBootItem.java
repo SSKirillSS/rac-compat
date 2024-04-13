@@ -13,6 +13,7 @@ import it.hurts.sskirillss.relics.items.relics.base.IRelicItem;
 import it.hurts.sskirillss.relics.items.relics.base.IRenderableCurio;
 import it.hurts.sskirillss.relics.items.relics.base.RelicItem;
 import it.hurts.sskirillss.relics.items.relics.base.data.RelicData;
+import it.hurts.sskirillss.relics.items.relics.base.data.cast.CastData;
 import it.hurts.sskirillss.relics.items.relics.base.data.cast.misc.CastStage;
 import it.hurts.sskirillss.relics.items.relics.base.data.cast.misc.CastType;
 import it.hurts.sskirillss.relics.items.relics.base.data.leveling.AbilitiesData;
@@ -61,7 +62,9 @@ public class PolarBootItem extends RelicItem implements IRenderableCurio {
         return RelicData.builder()
                 .abilities(AbilitiesData.builder()
                         .ability(AbilityData.builder("polarity")
-                                .active(CastType.TOGGLEABLE)
+                                .active(CastData.builder()
+                                        .type(CastType.TOGGLEABLE)
+                                        .build())
                                 .icon((player, stack, ability) -> ability + (isAbilityTicking(stack, ability) ? "_blue" : "_red"))
                                 .stat(StatData.builder("speed")
                                         .initialValue(0.9D, 0.95D)
