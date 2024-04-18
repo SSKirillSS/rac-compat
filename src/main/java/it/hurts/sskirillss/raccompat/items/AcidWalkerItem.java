@@ -240,7 +240,7 @@ public class AcidWalkerItem extends RelicItem implements IRenderableCurio {
                 NBTUtils.setInt(stack, TAG_DURATION, ++duration);
 
                 if (duration % 5 == 0)
-                    relic.addExperience(player, stack, 1);
+                    relic.spreadExperience(player, stack, 1);
             }
 
             event.setCanceled(true);

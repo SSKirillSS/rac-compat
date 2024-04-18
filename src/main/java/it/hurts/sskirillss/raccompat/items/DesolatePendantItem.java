@@ -143,7 +143,7 @@ public class DesolatePendantItem extends RelicItem implements IRenderableCurio {
 
             level.addFreshEntity(dagger);
 
-            addExperience(player, stack, 1);
+            spreadExperience(player, stack, 1);
 
             if (!level.isClientSide())
                 NetworkHandler.sendToClients(PacketDistributor.TRACKING_ENTITY.with(() -> dagger), new DesolateDaggerRenderStackPacket(dagger.daggerRenderStack, dagger.getId()));
@@ -228,7 +228,7 @@ public class DesolatePendantItem extends RelicItem implements IRenderableCurio {
 
             level.addFreshEntity(dagger);
 
-            relic.addExperience(player, stack, 1);
+            relic.spreadExperience(player, stack, 1);
 
             if (!level.isClientSide())
                 NetworkHandler.sendToClients(PacketDistributor.TRACKING_ENTITY.with(() -> dagger), new DesolateDaggerRenderStackPacket(dagger.daggerRenderStack, dagger.getId()));
