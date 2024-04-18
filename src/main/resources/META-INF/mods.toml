@@ -38,6 +38,6 @@ side = "BOTH"
 [[dependencies.${mod_id}]]
 modId = "relics"
 mandatory = true
-versionRange = "[0.6.4,)"
+versionRange = "[0.6.5,)"
 ordering = "NONE"
 side = "BOTH"
