@@ -15,6 +15,7 @@ import it.hurts.sskirillss.relics.items.relics.base.data.leveling.StatData;
 import it.hurts.sskirillss.relics.items.relics.base.data.leveling.misc.UpgradeOperation;
 import it.hurts.sskirillss.relics.items.relics.base.data.loot.LootData;
 import it.hurts.sskirillss.relics.items.relics.base.data.style.StyleData;
+import it.hurts.sskirillss.relics.items.relics.base.data.style.TooltipData;
 import it.hurts.sskirillss.relics.utils.MathUtils;
 import it.hurts.sskirillss.relics.utils.ParticleUtils;
 import it.hurts.sskirillss.relics.utils.WorldUtils;
@@ -57,6 +58,11 @@ public class VineRingItem extends RelicItem {
                         .build())
                 .leveling(new LevelingData(100, 10, 200))
                 .style(StyleData.builder()
+                        .tooltip(TooltipData.builder()
+                                .borderTop(0xFF274705)
+                                .borderBottom(0xFF29190f)
+                                .textured(true)
+                                .build())
                         .background(RACBackgrounds.PRIMORDIAL)
                         .build())
                 .loot(LootData.builder()
