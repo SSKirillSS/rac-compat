@@ -38,7 +38,7 @@ public class VineRingItem extends RelicItem {
                         .ability(AbilityData.builder("vine")
                                 .active(CastData.builder()
                                         .type(CastType.INSTANTANEOUS)
-                                        .predicate("ceil", (player, stack) -> {
+                                        .castPredicate("ceil", (player, stack) -> {
                                             int maxDistance = (int) getAbilityValue(stack, "vine", "length");
 
                                             return WorldUtils.getCeilDistance(player.level(), player.position(), maxDistance) <= maxDistance;
