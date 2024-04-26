@@ -1,7 +1,0 @@
-{
-  "parent": "item/generated",
-    "textures": {
-        "layer0": "raccompat:item/acid_walker",
-        "layer1": "raccompat:item/acid_walker_bubble"
-    }
-}

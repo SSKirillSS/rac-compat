@@ -1,12 +1,7 @@
 {
-  "parent": "forge:item/default",
-  "base": {
-    "parent": "raccompat:item/acid_walker_3d"
-  },
-  "loader": "forge:separate_transforms",
-  "perspectives": {
-    "gui": {
-      "parent": "raccompat:item/acid_walker_2d_1"
+  "parent": "item/generated",
+    "textures": {
+        "layer0": "raccompat:item/acid_walker",
+        "layer1": "raccompat:item/acid_walker_bubble"
     }
-  }
 }

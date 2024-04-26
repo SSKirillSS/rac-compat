@@ -204,13 +204,13 @@ public class PolarBootItem extends RelicItem implements IRenderableCurio {
         RandomSource random = level.getRandom();
 
         if (stack.getItem() instanceof IRelicItem relic) {
-            Vec3 center = entity.position().add(MathUtils.randomFloat(random) * 0.1F, 0, MathUtils.randomFloat(random) * 0.1F);
+            Vec3 offset = entity.position().add(MathUtils.randomFloat(random) * 0.25F, 0, MathUtils.randomFloat(random) * 0.25F);
 
-            double distance = Math.min(5, WorldUtils.getGroundDistance(level, center, 5));
+            double distance = Math.min(5, WorldUtils.getGroundDistance(level, offset, 5));
 
             if (relic.isAbilityTicking(stack, "polarity")) {
                 if (entity.tickCount % 5 != 0)
-                    level.addParticle(ACParticleRegistry.AZURE_SHIELD_LIGHTNING.get(), center.x(), center.y() + entity.getBbHeight(), center.z(), center.x(), center.y() - distance, center.z());
+                    level.addParticle(ACParticleRegistry.AZURE_SHIELD_LIGHTNING.get(), entity.getX(), entity.getY() + entity.getBbHeight(), entity.getZ(), offset.x(), offset.y() - distance, offset.z());
 
                 if (distance <= 1) {
                     entity.setDeltaMovement(entity.getDeltaMovement().add(0, 0.05F, 0));
@@ -219,7 +219,7 @@ public class PolarBootItem extends RelicItem implements IRenderableCurio {
                 }
             } else {
                 if (entity.tickCount % 5 != 0)
-                    level.addParticle(ACParticleRegistry.SCARLET_SHIELD_LIGHTNING.get(), center.x(), center.y() + entity.getBbHeight(), center.z(), center.x(), center.y() - distance, center.z());
+                    level.addParticle(ACParticleRegistry.SCARLET_SHIELD_LIGHTNING.get(), entity.getX(), entity.getY() + entity.getBbHeight(), entity.getZ(), offset.x(), offset.y() - distance, offset.z());
             }
         }
 
