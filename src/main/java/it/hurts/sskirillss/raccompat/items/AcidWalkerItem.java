@@ -28,6 +28,7 @@ import it.hurts.sskirillss.relics.items.relics.base.data.leveling.StatData;
 import it.hurts.sskirillss.relics.items.relics.base.data.leveling.misc.UpgradeOperation;
 import it.hurts.sskirillss.relics.items.relics.base.data.loot.LootData;
 import it.hurts.sskirillss.relics.items.relics.base.data.style.StyleData;
+import it.hurts.sskirillss.relics.items.relics.base.data.style.TooltipData;
 import it.hurts.sskirillss.relics.utils.EntityUtils;
 import it.hurts.sskirillss.relics.utils.MathUtils;
 import it.hurts.sskirillss.relics.utils.NBTUtils;
@@ -73,6 +74,11 @@ public class AcidWalkerItem extends RelicItem implements IRenderableCurio {
                         .build())
                 .leveling(new LevelingData(100, 10, 200))
                 .style(StyleData.builder()
+                        .tooltip(TooltipData.builder()
+                                .borderTop(0xFF284514)
+                                .borderBottom(0xFF1a2217)
+                                .textured(true)
+                                .build())
                         .background(RACBackgrounds.TOXIC)
                         .build())
                 .loot(LootData.builder()
