@@ -6,7 +6,6 @@ import com.google.common.collect.Lists;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import it.hurts.sskirillss.raccompat.init.ItemRegistry;
-import it.hurts.sskirillss.raccompat.misc.RACBackgrounds;
 import it.hurts.sskirillss.raccompat.misc.RACLootCollections;
 import it.hurts.sskirillss.raccompat.network.NetworkHandler;
 import it.hurts.sskirillss.raccompat.network.packets.DesolateDaggerRenderStackPacket;
@@ -97,9 +96,6 @@ public class DesolatePendantItem extends RelicItem implements IRenderableCurio {
                                 .build())
                         .build())
                 .leveling(new LevelingData(100, 10, 200))
-                .style(StyleData.builder()
-                        .background(RACBackgrounds.FORLORN)
-                        .build())
                 .loot(LootData.builder()
                         .entry(RACLootCollections.FORLORN)
                         .build())

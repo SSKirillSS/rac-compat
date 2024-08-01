@@ -1,7 +1,6 @@
 package it.hurts.sskirillss.raccompat.items;
 
 import com.github.alexmodguy.alexscaves.server.block.ACBlockRegistry;
-import it.hurts.sskirillss.raccompat.misc.RACBackgrounds;
 import it.hurts.sskirillss.raccompat.misc.RACLootCollections;
 import it.hurts.sskirillss.relics.items.relics.base.RelicItem;
 import it.hurts.sskirillss.relics.items.relics.base.data.RelicData;
@@ -26,7 +25,10 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.HitResult;
+import net.minecraft.world.phys.Vec3;
 
 import java.awt.*;
 
@@ -41,7 +43,7 @@ public class VineRingItem extends RelicItem {
                                         .castPredicate("ceil", (player, stack) -> {
                                             int maxDistance = (int) getAbilityValue(stack, "vine", "length");
 
-                                            return WorldUtils.getCeilDistance(player.level(), player.position(), maxDistance) <= maxDistance;
+                                            return getCeilDistance(player.level(), player.position(), maxDistance) <= maxDistance;
                                         })
                                         .build())
                                 .stat(StatData.builder("length")
@@ -63,7 +65,6 @@ public class VineRingItem extends RelicItem {
                                 .borderBottom(0xFF29190f)
                                 .textured(true)
                                 .build())
-                        .background(RACBackgrounds.PRIMORDIAL)
                         .build())
                 .loot(LootData.builder()
                         .entry(RACLootCollections.PRIMORDIAL)
@@ -79,7 +80,7 @@ public class VineRingItem extends RelicItem {
         Level level = player.level();
         RandomSource random = level.getRandom();
 
-        double height = WorldUtils.getCeilHeight(level, player.position(), (int) getAbilityValue(stack, "vine", "length"));
+        double height = getCeilHeight(level, player.position(), (int) getAbilityValue(stack, "vine", "length"));
 
         spreadExperience(player, stack, (int) height);
 
@@ -107,5 +108,18 @@ public class VineRingItem extends RelicItem {
         player.setDeltaMovement(0F, Math.log(player.position().distanceTo(player.position().with(Direction.Axis.Y, height))) * 0.4F, 0F);
 
         addAbilityCooldown(stack, "vine", (int) (getAbilityValue(stack, "vine", "cooldown") * 20));
+    }
+
+    public static double getCeilHeight(Level level, Vec3 position, int iterations) {
+        HitResult result = level.clip(new ClipContext(position, position.add(0, iterations, 0), ClipContext.Block.COLLIDER, ClipContext.Fluid.ANY, null));
+
+        if (result.getType() == HitResult.Type.BLOCK)
+            return result.getLocation().y();
+
+        return level.getMaxBuildHeight();
+    }
+
+    public static double getCeilDistance(Level level, Vec3 position, int iterations) {
+        return Math.max(0, getCeilHeight(level, position, iterations) - position.y());
     }
 }

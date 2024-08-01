@@ -12,7 +12,6 @@ import com.mojang.blaze3d.vertex.VertexConsumer;
 import it.hurts.sskirillss.raccompat.entities.AcidCloudEntity;
 import it.hurts.sskirillss.raccompat.init.EntityRegistry;
 import it.hurts.sskirillss.raccompat.init.ItemRegistry;
-import it.hurts.sskirillss.raccompat.misc.RACBackgrounds;
 import it.hurts.sskirillss.raccompat.misc.RACLootCollections;
 import it.hurts.sskirillss.relics.api.events.common.FluidCollisionEvent;
 import it.hurts.sskirillss.relics.client.models.items.CurioModel;
@@ -79,7 +78,6 @@ public class AcidWalkerItem extends RelicItem implements IRenderableCurio {
                                 .borderBottom(0xFF1a2217)
                                 .textured(true)
                                 .build())
-                        .background(RACBackgrounds.TOXIC)
                         .build())
                 .loot(LootData.builder()
                         .entry(RACLootCollections.TOXIC)

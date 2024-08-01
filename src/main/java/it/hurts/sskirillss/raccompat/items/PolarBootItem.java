@@ -5,7 +5,6 @@ import com.github.alexmodguy.alexscaves.server.misc.ACSoundRegistry;
 import com.google.common.collect.Lists;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import it.hurts.sskirillss.raccompat.misc.RACBackgrounds;
 import it.hurts.sskirillss.raccompat.misc.RACLootCollections;
 import it.hurts.sskirillss.relics.client.models.items.CurioModel;
 import it.hurts.sskirillss.relics.client.models.items.SidedCurioModel;
@@ -42,6 +41,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
@@ -74,9 +74,6 @@ public class PolarBootItem extends RelicItem implements IRenderableCurio {
                                 .build())
                         .build())
                 .leveling(new LevelingData(100, 10, 200))
-                .style(StyleData.builder()
-                        .background(RACBackgrounds.MAGNETIC)
-                        .build())
                 .loot(LootData.builder()
                         .entry(RACLootCollections.MAGNETIC)
                         .build())
@@ -153,7 +150,7 @@ public class PolarBootItem extends RelicItem implements IRenderableCurio {
                 player.fallDistance = 0F;
 
                 if (level.isClientSide && player.tickCount % 2 == 0) {
-                    double diff = Math.min(24, player.getY() - WorldUtils.getGroundHeight(level, player.position(), 24));
+                    double diff = Math.min(24, player.getY() - WorldUtils.getGroundHeight(player, player.position(), 24));
 
                     if (diff > 0) {
                         Vec3 start = player.position().add(player.getDeltaMovement()).add(MathUtils.randomFloat(random) * 0.25F, 0, MathUtils.randomFloat(random) * 0.25F);
@@ -170,7 +167,7 @@ public class PolarBootItem extends RelicItem implements IRenderableCurio {
                 player.hasImpulse = true;
 
                 if (level.isClientSide && player.tickCount % 2 == 0) {
-                    double diff = Math.min(24, player.getY() - WorldUtils.getGroundHeight(level, player.position(), 24));
+                    double diff = Math.min(24, player.getY() - WorldUtils.getGroundHeight(player, player.position(), 24));
 
                     if (diff > 0) {
                         Vec3 start = player.position().add(player.getDeltaMovement()).add(MathUtils.randomFloat(random) * 0.25F, 0, MathUtils.randomFloat(random) * 0.25F);
@@ -206,7 +203,7 @@ public class PolarBootItem extends RelicItem implements IRenderableCurio {
         if (stack.getItem() instanceof IRelicItem relic) {
             Vec3 offset = entity.position().add(MathUtils.randomFloat(random) * 0.25F, 0, MathUtils.randomFloat(random) * 0.25F);
 
-            double distance = Math.min(5, WorldUtils.getGroundDistance(level, offset, 5));
+            double distance = Math.min(5, getGroundDistance(entity, offset, 5));
 
             if (relic.isAbilityTicking(stack, "polarity")) {
                 if (entity.tickCount % 5 != 0)
@@ -224,6 +221,10 @@ public class PolarBootItem extends RelicItem implements IRenderableCurio {
         }
 
         return false;
+    }
+
+    public static double getGroundDistance(Entity entity, Vec3 position, int iterations) {
+        return Math.max(0, position.y() - WorldUtils.getGroundHeight(entity, position, iterations));
     }
 
     @Override
